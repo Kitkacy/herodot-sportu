@@ -190,14 +190,3 @@ def CleanDB(plikJSON):
 #    db_creds = simplejson.load(f)
 #    DBcreate(db_creds)
 #    CSVtoDB("Books.csv","Clients.csv",db_creds)
-def SelectAll (connection: psycopg.connection, tableName):
-    cursor = connection.cursor()
-    selected = cursor.execute(f"SELECT * FROM {tableName}").fetchall()
-    cursor.close()
-    return selected
-
-def Select (connection: psycopg.connection, tableName, selectionType, selection):
-    cursor = connection.cursor()
-    selected = cursor.execute(f"SELECT * FROM {tableName} WHERE {selectionType} = '{selection}'").fetchall()
-    cursor.close()
-    return selected 
